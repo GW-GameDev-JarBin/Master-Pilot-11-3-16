@@ -30,6 +30,10 @@
 //attack = false;
 
 timer = 15;
+
+attacking = false;
+
+
 </string>
           </argument>
         </arguments>
@@ -53,15 +57,15 @@ timer = 15;
           <argument>
             <kind>1</kind>
             <string>///A button step
-x = view_xview[0] + 488
-y = view_yview[0] + 208
+x = view_xview[0] + 1200
+//y = view_yview[0] - 104
 
 
     timer--;
     if (timer &lt;= 0 and obj_player.sprite_index = spr_female_attack_down)
     {
         obj_player.sprite_index = spr_female_down;
-        //obj_player.down = false;
+        attacking = false
 
     }
     else if (timer &lt;= 0 and obj_player.sprite_index = spr_female_attack_up)
@@ -72,7 +76,7 @@ y = view_yview[0] + 208
     else if (timer &lt;= 0 and obj_player.sprite_index = spr_female_attack_left)
     {
         obj_player.sprite_index = spr_female_left;
-        //obj_player.left = false;
+         attacking = false
     }
     else if (timer &lt;= 0 and obj_player.sprite_index = spr_female_attack_right)
     {
@@ -108,9 +112,13 @@ y = view_yview[0] + 208
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>state = scr_attack_state;
+
+script_execute(state);
 
 
+
+/*
 player_x = obj_player.x;
 player_y = obj_player.y;
 
@@ -130,6 +138,7 @@ else if (obj_player.sprite_index == spr_female_up)
 else if (obj_player.sprite_index == spr_female_left)
 {
     obj_player.sprite_index = spr_female_attack_left
+    attacking = true
 }
 else if (obj_player.sprite_index == spr_female_right)
 {
@@ -138,7 +147,7 @@ else if (obj_player.sprite_index == spr_female_right)
 
 //bullet.direction = image_angle;
 //bullet.image_angle = image_angle;
-//bullet.speed = 15;
+//bullet.speed = 15;*/
 </string>
           </argument>
         </arguments>

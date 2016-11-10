@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_lifeform_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,12 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// variables
-image_speed = 0.4
+            <string>// Initialization
+event_inherited();
+image_speed = 0.0
 visible = false;
 act = false
-
-
+hp=1;
+state = scr_move_state;
 left = false
 right = false
 up = false
@@ -59,7 +60,13 @@ down = false
           <argument>
             <kind>1</kind>
             <string>// if active then 
-depth = -y
+event_inherited()
+script_execute(state);
+
+
+
+
+/*
 d = global.dir
 if act = true
 {
@@ -143,13 +150,13 @@ else
     
     // the speed must be sero 
 }
-
+*/
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_block_wall">
+    <event eventtype="4" ename="obj_door_2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -166,7 +173,66 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///colide with wall
+            <string>room_goto(level_3)
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_sword">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// show a sign that the sword has been picked up
+
+
+// play the sound
+audio_play_sound(snd_ding, 1, false)
+obj_sword.visible = false;
+
+obj_attack.visible = true;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_door_1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// collide with door
+
+room_goto(level_2)
 </string>
           </argument>
         </arguments>
@@ -207,9 +273,9 @@ else
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>2,2</point>
-    <point>12,2</point>
-    <point>12,20</point>
-    <point>2,20</point>
+    <point>16,16</point>
+    <point>48,16</point>
+    <point>48,80</point>
+    <point>16,80</point>
   </PhysicsShapePoints>
 </object>

@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_tada</sound>
+    <sound>sound\snd_ding</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_block_wall</sprite>
     <sprite>sprites\spr_stone</sprite>
@@ -30,12 +33,21 @@
         <sprite>sprites\spr_female_attack_up</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_door_1</sprite>
+    <sprite>sprites\spr_sword</sprite>
+    <sprite>sprites\spr_door_2</sprite>
+    <sprite>sprites\spr_monster</sprite>
+    <sprite>sprites\spr_damge</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_1</background>
     <background>background\bg_2</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_move_state.gml</script>
+    <script>scripts\scr_attack_state.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_attack</object>
     <object>objects\obj_bullet</object>
@@ -45,8 +57,17 @@
     <object>objects\obj_shield</object>
     <object>objects\obj_start</object>
     <object>objects\obj_block_wall</object>
+    <object>objects\obj_door_1</object>
+    <object>objects\obj_sword</object>
+    <object>objects\obj_door_2</object>
+    <object>objects\obj_monster</object>
+    <object>objects\obj_damage</object>
+    <object>objects\obj_lifeform_parent</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\level_1</room>
+    <room>rooms\level_2</room>
+    <room>rooms\level_3</room>
     <room>rooms\rm_1</room>
     <room>rooms\rm_1_old</room>
   </rooms>
